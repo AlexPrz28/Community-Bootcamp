@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="Register a New Car">
+     
+        <div >
+            <template if:true={brandPicklist.data}>
+                <lightning-combobox name="valueBrand" label="Brand" value={valueBrand}
+                    options={brandPicklist.data.values} onchange={handleChangeBrand}>
+                </lightning-combobox>
+            </template>
+            <template if:true={modelPicklist.data}>
+                <lightning-combobox name="valueModel" label="Model" value={valueModel}
+                    options={modelPicklist.data.values} onchange={handleChangeModel}>
+                </lightning-combobox>
+            </template>
+            <br />
+            
+            <lightning-input label="" name="file uploader" onchange={handleFilesChange} type="file">
+            </lightning-input>
+            <div class="slds-col slds-size_6-of-12 slds-p-horizontal--small slds-m-bottom--medium"><p><lightning-input label="Color" type="text" value={carColor} name="carColor" onchange={carHandleChange} required></lightning-input></p></div>         
+            <div class="slds-col slds-size_6-of-12 slds-p-horizontal--small slds-m-bottom--medium"><p><lightning-input label="Price" type="Number" value={carPrice} name="carPrice" onchange={carHandleChange} required></lightning-input></p></div>         
+             <br/>  <br/>
+             <div style="margin-left:4%">
+                <lightning-button class="slds-m-top--medium" label={UploadFile} onclick={handleSave}
+                    variant="brand" disabled={isTrue}></lightning-button>
+                <template if:true={isTrue}>
+                    <lightning-button class="slds-m-top--medium" label="Register a New Car Again" onclick={handleButton}
+                    variant="brand"></lightning-button>
+
+                </template>
+    </div>
+
+       </div>
+    </lightning-card>
+    </template>

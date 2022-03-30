@@ -1,0 +1,17 @@
+<template>
+   
+    <lightning-input type="search" value={modelName} onchange={handleKeyChange} class="slds-m-bottom_small" label="Search By Color" ></lightning-input>
+
+    <lightning-combobox name={modelValue} label="Select A Model" value={modelValue}  placeholder="Select Model" options={ModelOptions} onchange={handleModelChange}></lightning-combobox>
+    <lightning-combobox name={brandValue} label="Select A Brand" value={brandValue} placeholder="Select Brand" options={BrandOptions} onchange={handleBrandChange}></lightning-combobox>
+
+    <c-codex-data-table
+                key-field="id"
+                data={records}
+                show-row-number-column="false"
+                hide-checkbox-column="false"
+                columns={columns}>
+    </c-codex-data-table>
+
+
+</template>

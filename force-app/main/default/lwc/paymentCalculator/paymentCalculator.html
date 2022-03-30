@@ -1,0 +1,27 @@
+<template>
+   
+    <p>Insert a Model</p>
+    <lightning-combobox name={modelValue} label="" value={modelValue}  placeholder="Select Model" options={ModelOptions} onchange={handleModelChange}></lightning-combobox>
+    <lightning-input type="number" onchange={handleAmountChange} class="slds-m-bottom_small" label="Insert the amount to pay" value={amount}></lightning-input>
+    <lightning-input type="number" onchange={handleDownChange} class="slds-m-bottom_small" label="Insert the down payment" value={down}></lightning-input>
+    <lightning-combobox name="term" label="Term" value={term} placeholder="Select Term" options={termOptions} onchange={handleTermChange}></lightning-combobox>
+    <lightning-button variant="brand" label="Calculate Payments" title="calculatePayment" onclick={handleClickPayment} class="slds-m-left_x-small"></lightning-button>
+    <lightning-button variant="brand-outline" label="Reset Calculator" title="resetCalculator" onclick={handleClickReset} class="slds-m-left_x-small"></lightning-button>
+    <br/>
+    <template if:true={calculated}>
+        <c-salesforce-codex-data-table
+                key-field="id"
+                data={records}
+                show-row-number-column="false"
+                hide-checkbox-column="false"
+                columns={columns}>
+    </c-salesforce-codex-data-table>
+    <lightning-button variant="brand" label="Download CSV File" onclick={csvGenerator} ></lightning-button>
+    <lightning-button variant="brand" label="Download PDF File" onclick={pdfGenerator} ></lightning-button>
+    </template>
+
+
+    
+
+
+</template>
